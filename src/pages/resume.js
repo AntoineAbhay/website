@@ -19,6 +19,10 @@ const EXPERIENCES = [
       { text: "Node.js", backgroundColor: "#026e00", color: "white" },
       { text: "GraphQL", backgroundColor: "#E10098", color: "black" },
       { text: "React", backgroundColor: "#61dafb", color: "black" },
+      { text: "AWS", backgroundColor: "#f8991d", color: "black" },
+      { text: "Terraform", backgroundColor: "#623ce4", color: "white" },
+      { text: "CircleCI", backgroundColor: "#161616", color: "white" },
+      { text: "Docker", backgroundColor: "#0091e2", color: "white" },
     ],
   },
 
@@ -30,6 +34,7 @@ const EXPERIENCES = [
     excerpt:
       "Développement d'un logiciel de gestion des affichages publicitaires utilisant C# et jQuery. Personnalisation de contrats et factures.",
     skills: [
+      { text: "SQL", backgroundColor: "#006cc1", color: "white" },
       { text: "C#", backgroundColor: "#38225d", color: "white" },
       { text: "JQuery", backgroundColor: "#b3d4fc", color: "black" },
     ],
@@ -56,6 +61,11 @@ const EDUCATION = [
     companyLink: "https://www.ec-lyon.fr/",
     icon: "eclImage",
     excerpt: "Formation d'ingénieur généraliste, option informatique.",
+    skills: [
+      { text: "Python", backgroundColor: "#ffd343", color: "black" },
+      { text: "Javascript", backgroundColor: "#f7df1e", color: "black" },
+      { text: "SQL", backgroundColor: "#006cc1", color: "white" },
+    ],
   },
 ]
 
@@ -67,11 +77,11 @@ const Experience = ({ data, title, excerpt, icon, companyLink, skills }) => (
     <div className={styles.description}>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.excerpt}>{excerpt}</p>
-      <p>
+      <div className={styles.skills}>
         {(skills || []).map(({ text, backgroundColor, color }) => (
           <Chip text={text} backgroundColor={backgroundColor} color={color} />
         ))}
-      </p>
+      </div>
     </div>
   </div>
 )
@@ -140,7 +150,7 @@ const ResumePage = () => {
       )}
       <h2>Formation</h2>
       {EDUCATION.map(
-        ({ title, location, companyLink, icon, excerpt }, index) => (
+        ({ title, location, companyLink, icon, excerpt, skills }, index) => (
           <Experience
             key={index}
             data={data}
@@ -149,6 +159,7 @@ const ResumePage = () => {
             companyLink={companyLink}
             icon={icon}
             excerpt={excerpt}
+            skills={skills}
           />
         )
       )}
