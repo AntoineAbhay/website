@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 import styles from "./resume.module.css"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Chip from "../components/chip"
 
 const EXPERIENCES = [
   {
@@ -13,7 +14,14 @@ const EXPERIENCES = [
     icon: "hiresweetImage",
     excerpt:
       "Développement de l'application client d'hiresweet et des outils internes utilisant React en front, NodeJs et MongoDB en back ainsi que des API REST et GraphQL.",
+    skills: [
+      { text: "MongoDB", backgroundColor: "#13aa52", color: "white" },
+      { text: "Node.js", backgroundColor: "#026e00", color: "white" },
+      { text: "GraphQL", backgroundColor: "#E10098", color: "black" },
+      { text: "React", backgroundColor: "#61dafb", color: "black" },
+    ],
   },
+
   {
     title: "Fullstack - Ayuda",
     location: "Sydney, New South Wales, Australia",
@@ -21,6 +29,10 @@ const EXPERIENCES = [
     icon: "ayudaImage",
     excerpt:
       "Développement d'un logiciel de gestion des affichages publicitaires utilisant C# et jQuery. Personnalisation de contrats et factures.",
+    skills: [
+      { text: "C#", backgroundColor: "#38225d", color: "white" },
+      { text: "JQuery", backgroundColor: "#b3d4fc", color: "black" },
+    ],
   },
   {
     title: "Fullstack - Homerez",
@@ -29,6 +41,11 @@ const EXPERIENCES = [
     icon: "homerezImage",
     excerpt:
       "Développement des différentes applications web d'Homerez (CRM, plateforme de réservation) basées sur des technologies Javascript (NodeJS, AngularJS) et MongoDB.",
+    skills: [
+      { text: "MongoDB", backgroundColor: "#13aa52", color: "white" },
+      { text: "Node.js", backgroundColor: "#026e00", color: "white" },
+      { text: "AngularJS", backgroundColor: "#de0032", color: "white" },
+    ],
   },
 ]
 
@@ -42,7 +59,7 @@ const EDUCATION = [
   },
 ]
 
-const Experience = ({ data, title, excerpt, icon, companyLink }) => (
+const Experience = ({ data, title, excerpt, icon, companyLink, skills }) => (
   <div className={styles.experience}>
     <a target="__blank" rel="noopener noreferer" href={companyLink}>
       <Img fixed={data[icon].childImageSharp.fixed} className={styles.icon} />
@@ -50,6 +67,11 @@ const Experience = ({ data, title, excerpt, icon, companyLink }) => (
     <div className={styles.description}>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.excerpt}>{excerpt}</p>
+      <p>
+        {(skills || []).map(({ text, backgroundColor, color }) => (
+          <Chip text={text} backgroundColor={backgroundColor} color={color} />
+        ))}
+      </p>
     </div>
   </div>
 )
@@ -103,7 +125,7 @@ const ResumePage = () => {
       <SEO title="Resume" />
       <h2>Expériences</h2>
       {EXPERIENCES.map(
-        ({ title, location, companyLink, icon, excerpt }, index) => (
+        ({ title, location, companyLink, icon, excerpt, skills }, index) => (
           <Experience
             key={index}
             data={data}
@@ -112,6 +134,7 @@ const ResumePage = () => {
             companyLink={companyLink}
             icon={icon}
             excerpt={excerpt}
+            skills={skills}
           />
         )
       )}
