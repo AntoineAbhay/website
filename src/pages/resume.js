@@ -78,8 +78,13 @@ const Experience = ({ data, title, excerpt, icon, companyLink, skills }) => (
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.excerpt}>{excerpt}</p>
       <div className={styles.skills}>
-        {(skills || []).map(({ text, backgroundColor, color }) => (
-          <Chip text={text} backgroundColor={backgroundColor} color={color} />
+        {(skills || []).map(({ text, backgroundColor, color }, index) => (
+          <Chip
+            key={index}
+            text={text}
+            backgroundColor={backgroundColor}
+            color={color}
+          />
         ))}
       </div>
     </div>
