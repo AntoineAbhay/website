@@ -27,7 +27,7 @@ const EXPERIENCES = [
   },
 
   {
-    title: "Fullstack - Ayuda",
+    title: "Fullstack - Ayuda (stage)",
     location: "Sydney, New South Wales, Australia",
     companyLink: "https://broadsign.com/ayuda/",
     icon: "ayudaImage",
@@ -40,7 +40,7 @@ const EXPERIENCES = [
     ],
   },
   {
-    title: "Fullstack - Homerez",
+    title: "Fullstack - Homerez (stage)",
     location: "Région de Paris, France",
     companyLink: "https://www.homerez.fr/",
     icon: "homerezImage",
@@ -131,7 +131,7 @@ const ResumePage = () => {
     }
   `)
   return (
-    <Layout>
+    <Layout className="resumeBackground">
       <SEO title="Resume" />
       <h2>Expériences</h2>
       {EXPERIENCES.map(
