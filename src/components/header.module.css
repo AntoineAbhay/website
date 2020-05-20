@@ -20,6 +20,7 @@
   color: white;
   font-weight: 600;
   font-size: 24px;
+  white-space: nowrap;
 }
 
 .navigation-item:hover {
