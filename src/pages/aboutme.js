@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import styles from "./resume.module.css"
+import styles from "./aboutme.module.css"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Chip from "../components/chip"
@@ -102,7 +102,7 @@ const Experience = ({ data, title, excerpt, icon, companyLink, skills }) => (
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const ResumePage = () => {
+const ResumePage = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
       hiresweetImage: file(relativePath: { eq: "hiresweet.png" }) {
@@ -135,8 +135,9 @@ const ResumePage = () => {
       }
     }
   `)
+
   return (
-    <Layout className="resumeBackground">
+    <Layout className="resumeBackground" location={location}>
       <SEO title="Resume" />
       <h2>Expériences</h2>
       {EXPERIENCES.map(

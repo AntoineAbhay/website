@@ -1,26 +1,23 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 import styles from "./header.module.css"
 
-const Header = ({ siteTitle }) => (
-  <header className={styles.header}>
-    <div className={styles.container}>
-      <h1 className={styles.title}>
-        <Link to="/" className={styles.link}>
-          {siteTitle}
+const Header = ({ location }) => {
+  const navigationItemClass = path =>
+    `${styles.navigationItem} ${location?.pathname === path && styles.active}`
+  return (
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <Link className={navigationItemClass("/")} to="/">
+          Accueil
         </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+        <div className={styles.spacer} />
+        <Link className={navigationItemClass("/aboutme")} to="/aboutme">
+          About me
+        </Link>
+      </div>
+    </header>
+  )
 }
 
 export default Header
