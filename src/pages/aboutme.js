@@ -71,11 +71,13 @@ const EDUCATION = [
 
 const Experience = ({ data, title, excerpt, icon, companyLink, skills }) => (
   <div className={styles.experience}>
-    <a target="__blank" rel="noopener noreferer" href={companyLink}>
-      <Img fixed={data[icon].childImageSharp.fixed} className={styles.icon} />
-    </a>
-    <div className={styles.description}>
+    <div className={styles.experienceHeader}>
+      <a target="__blank" rel="noopener noreferer" href={companyLink}>
+        <Img fixed={data[icon].childImageSharp.fixed} className={styles.icon} />
+      </a>
       <h3 className={styles.title}>{title}</h3>
+    </div>
+    <div className={styles.description}>
       <p className={styles.excerpt}>{excerpt}</p>
       <div className={styles.skills}>
         {(skills || []).map(({ text, backgroundColor, color }, index) => (

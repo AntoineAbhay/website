@@ -1,11 +1,17 @@
 .experience {
   display: flex;
-  align-items: center;
-  margin: 0 auto 12px auto;
+  flex-direction: column;
+  margin: 0 auto 2rem auto;
 }
 
 .experience:last-child {
   margin-bottom: 0;
+}
+
+.experience-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .icon {
@@ -17,12 +23,10 @@
 
 .description {
   flex: 1;
-  margin-left: 18px;
-  padding: 12px;
 }
 
 .title {
-  margin: 0 0 12px 0;
+  margin: 0 0 0 1rem;
   padding: 0;
 }
 
