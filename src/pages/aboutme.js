@@ -5,6 +5,7 @@ import styles from "./aboutme.module.css"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Chip from "../components/chip"
+import RepositoryCard from "../components/repositoryCard"
 
 const EXPERIENCES = [
   {
@@ -135,9 +136,38 @@ const ResumePage = ({ location }) => {
           }
         }
       }
+
+      github {
+        viewer {
+          repositories(first: 100, affiliations: [OWNER]) {
+            nodes {
+              name
+              description
+              url
+              languages(first: 10) {
+                nodes {
+                  color
+                  name
+                }
+              }
+              pushedAt
+              repositoryTopics(first: 100) {
+                nodes {
+                  topic {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   `)
 
+  const sortedRepositories = (
+    data?.github?.viewer?.repositories?.nodes || []
+  ).sort((repo1, repo2) => (repo1.pushedAt < repo2.pushedAt ? 1 : -1))
   return (
     <Layout className="resumeBackground" location={location}>
       <SEO title="Resume" />
@@ -171,6 +201,12 @@ const ResumePage = ({ location }) => {
           />
         )
       )}
+      <h2>Github</h2>
+      <div className={styles.repositoriesContainer}>
+        {sortedRepositories.map((repository, index) => (
+          <RepositoryCard key={index} repository={repository} />
+        ))}
+      </div>
     </Layout>
   )
 }

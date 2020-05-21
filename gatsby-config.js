@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Antoine Abhay`,
@@ -31,6 +35,17 @@ module.exports = {
         theme_color: `#eeeeee`,
         display: `minimal-ui`,
         icon: `src/images/my-icon.svg`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `GitHub`,
+        fieldName: `github`,
+        url: `https://api.github.com/graphql`,
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

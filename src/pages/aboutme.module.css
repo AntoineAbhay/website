@@ -38,3 +38,8 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.repositories-container {
+  display: flex;
+  flex-wrap: wrap;
+}

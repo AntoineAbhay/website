@@ -1,0 +1,25 @@
+.repository-card {
+  margin: 1rem 1rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: solid 1px var(--color-1);
+  width: calc(50% - 2rem);
+}
+@media screen and (max-width: 600px) {
+  .repository-card {
+    width: calc(100% - 2rem);
+  }
+}
+
+.repository-card p {
+  margin-bottom: 0;
+  font-size: 0.8em;
+}
+
+a.repository-name {
+  color: var(--color-1);
+}
+a.repository-name h3 {
+  color: var(--color-1);
+  margin: 0;
+}
