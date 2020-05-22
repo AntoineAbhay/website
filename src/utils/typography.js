@@ -1,6 +1,7 @@
 import Typography from "typography"
 import sutroTheme from "typography-theme-sutro"
 sutroTheme.headerFontFamily = ["Poppins", ...sutroTheme.headerFontFamily]
+sutroTheme.baseFontSize = "16px"
 sutroTheme.overrideThemeStyles = () => {
   return {
     "h1,h2,h3": {

@@ -1,5 +1,4 @@
 .header {
-  background: var(--color-4);
   margin-bottom: 1.45rem;
 }
 
@@ -17,7 +16,7 @@
   display: flex;
   align-items: center;
   padding: 0 0.5rem;
-  color: white;
+  color: var(--color-4);
   font-weight: 600;
   font-size: 24px;
   white-space: nowrap;
@@ -25,13 +24,13 @@
 
 .navigation-item:hover {
   text-decoration: none;
-  border-bottom: solid white 3px;
-  border-top: solid var(--color-4) 3px;
+  border-top: solid white 3px;
+  border-bottom: solid var(--color-4) 3px;
 }
 
 .navigation-item.active {
-  border-bottom: solid white 3px;
-  border-top: solid var(--color-4) 3px;
+  border-top: solid white 3px;
+  border-bottom: solid var(--color-4) 3px;
 }
 
 .spacer {

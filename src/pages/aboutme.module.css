@@ -1,7 +1,17 @@
+.background {
+  background: url("/chips_background.svg");
+  background-size: auto;
+}
+
 .experience {
   display: flex;
   flex-direction: column;
-  margin: 0 auto 2rem auto;
+  margin: 1rem 1rem;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  box-shadow: 2px 2px 2px #efefef, -1px -1px 4px #efefef;
+  width: calc(100% - 2rem);
+  background-color: #ffffff;
 }
 
 .experience:last-child {
@@ -15,9 +25,9 @@
 }
 
 .icon {
-  flex: 0 0 60px;
-  width: 60px;
-  height: 60px;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
   margin: 0;
 }
 

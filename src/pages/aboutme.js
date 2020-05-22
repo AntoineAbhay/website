@@ -72,12 +72,12 @@ const EDUCATION = [
 
 const Experience = ({ data, title, excerpt, icon, companyLink, skills }) => (
   <div className={styles.experience}>
-    <div className={styles.experienceHeader}>
-      <a target="__blank" rel="noopener noreferer" href={companyLink}>
+    <a target="__blank" rel="noopener noreferer" href={companyLink}>
+      <div className={styles.experienceHeader}>
         <Img fixed={data[icon].childImageSharp.fixed} className={styles.icon} />
-      </a>
-      <h3 className={styles.title}>{title}</h3>
-    </div>
+        <h3 className={styles.title}>{title}</h3>
+      </div>
+    </a>
     <div className={styles.description}>
       <p className={styles.excerpt}>{excerpt}</p>
       <div className={styles.skills}>
@@ -110,28 +110,28 @@ const ResumePage = ({ location }) => {
     query {
       hiresweetImage: file(relativePath: { eq: "hiresweet.png" }) {
         childImageSharp {
-          fixed(width: 60, height: 60) {
+          fixed(width: 30, height: 30) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       ayudaImage: file(relativePath: { eq: "ayuda.png" }) {
         childImageSharp {
-          fixed(width: 60, height: 60) {
+          fixed(width: 30, height: 30) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       homerezImage: file(relativePath: { eq: "homerez.png" }) {
         childImageSharp {
-          fixed(width: 60, height: 60) {
+          fixed(width: 30, height: 30) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       eclImage: file(relativePath: { eq: "ecl.png" }) {
         childImageSharp {
-          fixed(width: 60, height: 60) {
+          fixed(width: 30, height: 30) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -169,45 +169,47 @@ const ResumePage = ({ location }) => {
     data?.github?.viewer?.repositories?.nodes || []
   ).sort((repo1, repo2) => (repo1.pushedAt < repo2.pushedAt ? 1 : -1))
   return (
-    <Layout className="resumeBackground" location={location}>
-      <SEO title="Resume" />
-      <h2>Expériences</h2>
-      {EXPERIENCES.map(
-        ({ title, location, companyLink, icon, excerpt, skills }, index) => (
-          <Experience
-            key={index}
-            data={data}
-            title={title}
-            location={location}
-            companyLink={companyLink}
-            icon={icon}
-            excerpt={excerpt}
-            skills={skills}
-          />
-        )
-      )}
-      <h2>Formation</h2>
-      {EDUCATION.map(
-        ({ title, location, companyLink, icon, excerpt, skills }, index) => (
-          <Experience
-            key={index}
-            data={data}
-            title={title}
-            location={location}
-            companyLink={companyLink}
-            icon={icon}
-            excerpt={excerpt}
-            skills={skills}
-          />
-        )
-      )}
-      <h2>Github</h2>
-      <div className={styles.repositoriesContainer}>
-        {sortedRepositories.map((repository, index) => (
-          <RepositoryCard key={index} repository={repository} />
-        ))}
-      </div>
-    </Layout>
+    <div className={styles.background}>
+      <Layout location={location}>
+        <SEO title="Resume" />
+        <h2>Expériences</h2>
+        {EXPERIENCES.map(
+          ({ title, location, companyLink, icon, excerpt, skills }, index) => (
+            <Experience
+              key={index}
+              data={data}
+              title={title}
+              location={location}
+              companyLink={companyLink}
+              icon={icon}
+              excerpt={excerpt}
+              skills={skills}
+            />
+          )
+        )}
+        <h2>Formation</h2>
+        {EDUCATION.map(
+          ({ title, location, companyLink, icon, excerpt, skills }, index) => (
+            <Experience
+              key={index}
+              data={data}
+              title={title}
+              location={location}
+              companyLink={companyLink}
+              icon={icon}
+              excerpt={excerpt}
+              skills={skills}
+            />
+          )
+        )}
+        <h2>Github</h2>
+        <div className={styles.repositoriesContainer}>
+          {sortedRepositories.map((repository, index) => (
+            <RepositoryCard key={index} repository={repository} />
+          ))}
+        </div>
+      </Layout>
+    </div>
   )
 }
 

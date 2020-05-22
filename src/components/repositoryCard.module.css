@@ -1,9 +1,10 @@
 .repository-card {
   margin: 1rem 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 0.3rem;
-  border: solid 1px var(--color-1);
+  box-shadow: 2px 2px 2px #efefef, -1px -1px 4px #efefef;
   width: calc(50% - 2rem);
+  background-color: #ffffff;
 }
 @media screen and (max-width: 600px) {
   .repository-card {
@@ -13,7 +14,6 @@
 
 .repository-card p {
   margin-bottom: 0;
-  font-size: 0.8em;
 }
 
 a.repository-name {
