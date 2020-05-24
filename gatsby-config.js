@@ -37,6 +37,13 @@ module.exports = {
         icon: `src/images/my-icon.svg`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
+      },
+    },
     {
       resolve: `gatsby-source-graphql`,
       options: {

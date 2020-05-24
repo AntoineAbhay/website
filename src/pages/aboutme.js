@@ -7,69 +7,6 @@ import SEO from "../components/seo"
 import Chip from "../components/chip"
 import RepositoryCard from "../components/repositoryCard"
 
-const EXPERIENCES = [
-  {
-    title: "Fullstack - Hiresweet",
-    location: "Région de Paris, France",
-    companyLink: "https://hiresweet.com/",
-    icon: "hiresweetImage",
-    excerpt:
-      "Développement de l'application client d'hiresweet et des outils internes utilisant React en front, NodeJs et MongoDB en back ainsi que des API REST et GraphQL.",
-    skills: [
-      { text: "MongoDB", backgroundColor: "#13aa52", color: "white" },
-      { text: "Node.js", backgroundColor: "#026e00", color: "white" },
-      { text: "GraphQL", backgroundColor: "#E10098", color: "black" },
-      { text: "React", backgroundColor: "#61dafb", color: "black" },
-      { text: "AWS", backgroundColor: "#f8991d", color: "black" },
-      { text: "Terraform", backgroundColor: "#623ce4", color: "white" },
-      { text: "CircleCI", backgroundColor: "#161616", color: "white" },
-      { text: "Docker", backgroundColor: "#0091e2", color: "white" },
-    ],
-  },
-
-  {
-    title: "Fullstack - Ayuda (stage)",
-    location: "Sydney, New South Wales, Australia",
-    companyLink: "https://broadsign.com/ayuda/",
-    icon: "ayudaImage",
-    excerpt:
-      "Développement d'un logiciel de gestion des affichages publicitaires utilisant C# et jQuery. Personnalisation de contrats et factures.",
-    skills: [
-      { text: "SQL", backgroundColor: "#006cc1", color: "white" },
-      { text: "C#", backgroundColor: "#38225d", color: "white" },
-      { text: "JQuery", backgroundColor: "#b3d4fc", color: "black" },
-    ],
-  },
-  {
-    title: "Fullstack - Homerez (stage)",
-    location: "Région de Paris, France",
-    companyLink: "https://www.homerez.fr/",
-    icon: "homerezImage",
-    excerpt:
-      "Développement des différentes applications web d'Homerez (CRM, plateforme de réservation) basées sur des technologies Javascript (NodeJS, AngularJS) et MongoDB.",
-    skills: [
-      { text: "MongoDB", backgroundColor: "#13aa52", color: "white" },
-      { text: "Node.js", backgroundColor: "#026e00", color: "white" },
-      { text: "AngularJS", backgroundColor: "#de0032", color: "white" },
-    ],
-  },
-]
-
-const EDUCATION = [
-  {
-    title: "École Centrale de Lyon",
-    location: "Région de Lyon, France",
-    companyLink: "https://www.ec-lyon.fr/",
-    icon: "eclImage",
-    excerpt: "Formation d'ingénieur généraliste, option informatique.",
-    skills: [
-      { text: "Python", backgroundColor: "#ffd343", color: "black" },
-      { text: "Javascript", backgroundColor: "#f7df1e", color: "black" },
-      { text: "SQL", backgroundColor: "#006cc1", color: "white" },
-    ],
-  },
-]
-
 const Experience = ({ data, title, excerpt, icon, companyLink, skills }) => (
   <div className={styles.experience}>
     <a target="__blank" rel="noopener noreferer" href={companyLink}>
@@ -137,6 +74,37 @@ const ResumePage = ({ location }) => {
         }
       }
 
+      allDataJson {
+        edges {
+          node {
+            experiences {
+              companyLink
+              excerpt
+              icon
+              location
+              skills {
+                backgroundColor
+                color
+                text
+              }
+              title
+            }
+            education {
+              companyLink
+              excerpt
+              icon
+              location
+              skills {
+                backgroundColor
+                color
+                text
+              }
+              title
+            }
+          }
+        }
+      }
+
       github {
         viewer {
           repositories(first: 100, affiliations: [OWNER]) {
@@ -165,6 +133,9 @@ const ResumePage = ({ location }) => {
     }
   `)
 
+  const experiences = data.allDataJson.edges[0].node.experiences || []
+  const education = data.allDataJson.edges[0].node.education || []
+
   const sortedRepositories = (
     data?.github?.viewer?.repositories?.nodes || []
   ).sort((repo1, repo2) => (repo1.pushedAt < repo2.pushedAt ? 1 : -1))
@@ -173,7 +144,7 @@ const ResumePage = ({ location }) => {
       <Layout location={location}>
         <SEO title="Resume" />
         <h2>Expériences</h2>
-        {EXPERIENCES.map(
+        {experiences.map(
           ({ title, location, companyLink, icon, excerpt, skills }, index) => (
             <Experience
               key={index}
@@ -188,7 +159,7 @@ const ResumePage = ({ location }) => {
           )
         )}
         <h2>Formation</h2>
-        {EDUCATION.map(
+        {education.map(
           ({ title, location, companyLink, icon, excerpt, skills }, index) => (
             <Experience
               key={index}
