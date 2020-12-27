@@ -1,15 +1,32 @@
 import Typography from "typography"
-import sutroTheme from "typography-theme-sutro"
-sutroTheme.headerFontFamily = ["Poppins", ...sutroTheme.headerFontFamily]
-sutroTheme.baseFontSize = "16px"
-sutroTheme.overrideThemeStyles = () => {
-  return {
-    "h1,h2,h3": {
-      color: "#1e2a78",
+
+const typography = new Typography({
+  baseFontSize: "16px",
+  baseLineHeight: 1.666,
+  headerFontFamily: [
+    "Playfair Display",
+    "serif",
+  ],
+  bodyFontFamily: ["Montserrat", "sans-serif"],
+  googleFonts: [
+    {
+      name: 'Playfair Display',
+      styles: [
+        '500',
+        '700',
+      ],
     },
-  }
-}
-const typography = new Typography(sutroTheme)
+    {
+      name: 'Montserrat',
+      styles: [
+        '400',
+        '400i',
+        '700',
+        '700i',
+      ],
+    },
+  ]
+})
 
 // Export helper functions
 export const { scale, rhythm, options } = typography
