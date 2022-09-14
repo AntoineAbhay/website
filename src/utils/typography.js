@@ -4,13 +4,13 @@ const typography = new Typography({
   baseFontSize: "16px",
   baseLineHeight: 1.666,
   headerFontFamily: [
-    "Playfair Display",
+    "Poppins",
     "serif",
   ],
   bodyFontFamily: ["Montserrat", "sans-serif"],
   googleFonts: [
     {
-      name: 'Playfair Display',
+      name: 'Poppins',
       styles: [
         '500',
         '700',

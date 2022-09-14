@@ -35,9 +35,15 @@
   flex: 1;
 }
 
+.experience a {
+  text-decoration: none;
+}
+
 .title {
   margin: 0 0 0 1rem;
   padding: 0;
+  color: black;
+  opacity: 0.8;
 }
 
 .excerpt {
