@@ -47,15 +47,18 @@ section {
   text-decoration: none;
 }
 
+.titleContainer {
+  margin-bottom: 0.5em;
+}
+
 .title {
   margin: 0 0 0 1rem;
   padding: 0;
-  color: black;
-  opacity: 0.8;
+  color: var(--color-0);
 }
 
 .excerpt {
-  margin: 0;
+  margin-bottom: 0.5em;
 }
 
 .skills {
@@ -66,4 +69,9 @@ section {
 .repositories-container {
   display: flex;
   flex-wrap: wrap;
+}
+
+.metaData {
+  opacity: 0.8;
+  font-size: 14px;
 }

@@ -7,23 +7,38 @@ import SEO from "../components/seo"
 import Chip from "../components/chip"
 import RepositoryCard from "../components/repositoryCard"
 
-const Experience = ({ data, title, excerpt, icon, companyLink, skills }) => (
+const Experience = ({
+  data,
+  title,
+  excerpt,
+  icon,
+  companyLink,
+  skills,
+  location,
+  start,
+  end,
+}) => (
   <div className={styles.experience}>
-    <a target="__blank" rel="noopener noreferer" href={companyLink}>
+    <a
+      target="__blank"
+      rel="noopener noreferer"
+      href={companyLink}
+      className={styles.titleContainer}
+    >
       <div className={styles.experienceHeader}>
         <Img fixed={data[icon].childImageSharp.fixed} className={styles.icon} />
         <h3 className={styles.title}>{title}</h3>
       </div>
     </a>
+    <div className={styles.metaData}>{location}</div>
+    <div className={styles.metaData}>
+      {start} - {end}
+    </div>
     <div className={styles.description}>
       <p className={styles.excerpt}>{excerpt}</p>
       <div className={styles.skills}>
         {(skills || []).map(({ text, backgroundColor }, index) => (
-          <Chip
-            key={index}
-            text={text}
-            backgroundColor={backgroundColor}
-          />
+          <Chip key={index} text={text} backgroundColor={backgroundColor} />
         ))}
       </div>
     </div>
@@ -81,6 +96,8 @@ const ResumePage = ({ location }) => {
               excerpt
               icon
               location
+              start
+              end
               skills {
                 backgroundColor
                 color
@@ -93,6 +110,8 @@ const ResumePage = ({ location }) => {
               excerpt
               icon
               location
+              start
+              end
               skills {
                 backgroundColor
                 color
@@ -143,10 +162,19 @@ const ResumePage = ({ location }) => {
       <Layout pageId="aboutme">
         <SEO title="Resume" />
         <section>
-          <h2>Expériences</h2>
+          <h2>Experiences</h2>
           {experiences.map(
             (
-              { title, location, companyLink, icon, excerpt, skills },
+              {
+                title,
+                location,
+                companyLink,
+                icon,
+                excerpt,
+                skills,
+                start,
+                end,
+              },
               index
             ) => (
               <Experience
@@ -157,15 +185,27 @@ const ResumePage = ({ location }) => {
                 icon={icon}
                 excerpt={excerpt}
                 skills={skills}
+                location={location}
+                start={start}
+                end={end}
               />
             )
           )}
         </section>
         <section>
-          <h2>Formation</h2>
+          <h2>Education</h2>
           {education.map(
             (
-              { title, location, companyLink, icon, excerpt, skills },
+              {
+                title,
+                location,
+                companyLink,
+                icon,
+                excerpt,
+                skills,
+                start,
+                end,
+              },
               index
             ) => (
               <Experience
@@ -176,6 +216,9 @@ const ResumePage = ({ location }) => {
                 icon={icon}
                 excerpt={excerpt}
                 skills={skills}
+                location={location}
+                start={start}
+                end={end}
               />
             )
           )}

@@ -3,6 +3,8 @@
     {
       "title": "Fullstack - Hiresweet",
       "location": "Région de Paris, France",
+      "start": "April 2019",
+      "end": "Today",
       "companyLink": "https://hiresweet.com/",
       "icon": "hiresweetImage",
       "excerpt": "Développement de l'application client d'hiresweet et des outils internes utilisant React en front, NodeJs et MongoDB en back ainsi que des API REST et GraphQL.",
@@ -20,6 +22,8 @@
     {
       "title": "Fullstack - Ayuda (stage)",
       "location": "Sydney, New South Wales, Australia",
+      "start": "April 2018",
+      "end": "August 2018",
       "companyLink": "https://broadsign.com/ayuda/",
       "icon": "ayudaImage",
       "excerpt": "Développement d'un logiciel de gestion des affichages publicitaires utilisant C# et jQuery. Personnalisation de contrats et factures.",
@@ -32,6 +36,8 @@
     {
       "title": "Fullstack - Homerez (stage)",
       "location": "Région de Paris, France",
+      "start": "September 2017",
+      "end": "February 2018",
       "companyLink": "https://www.homerez.fr/",
       "icon": "homerezImage",
       "excerpt": "Développement des différentes applications web d'Homerez (CRM, plateforme de réservation) basées sur des technologies Javascript (NodeJS, AngularJS) et MongoDB.",
@@ -46,6 +52,8 @@
     {
       "title": "École Centrale de Lyon",
       "location": "Région de Lyon, France",
+      "start":"2015",
+      "end":"2019",
       "companyLink": "https://www.ec-lyon.fr/",
       "icon": "eclImage",
       "excerpt": "Formation d'ingénieur généraliste, option informatique.",
