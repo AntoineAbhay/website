@@ -1,6 +1,10 @@
 .background {
   background: url("/chips_background.svg");
-  background-size: auto;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 section {
