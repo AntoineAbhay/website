@@ -1,8 +1,9 @@
 :root {
+  --color-0: hsla(0,0%,0%,0.8);
   --color-1: #1e2a78;
   --color-2: #f9ff21;
   --color-3: #ffd615;
-  --color-4: #ff1f5a;
+  --color-4: #014554;
 }
 html {
   background-color: #fefeff;

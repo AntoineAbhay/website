@@ -17,9 +17,11 @@
 }
 
 a.repository-name {
-  color: var(--color-1);
+  color: var(--color-0);
+  text-decoration: none;
+  text-transform: capitalize;
 }
 a.repository-name h3 {
-  color: var(--color-1);
+  color: var(--color-0);
   margin: 0;
 }

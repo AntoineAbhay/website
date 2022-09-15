@@ -3,6 +3,10 @@
   background-size: auto;
 }
 
+section {
+  margin-bottom: 4em;
+}
+
 .experience {
   display: flex;
   flex-direction: column;

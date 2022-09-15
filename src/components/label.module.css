@@ -4,6 +4,6 @@
   font-size: 0.8em;
   padding: 0 0.5em;
   margin-right: 0.6em;
-  background-color: #ff1f5a10;
-  color: #ff1f5a;
+  background-color: #01455410;
+  color: var(--color-4);
 }

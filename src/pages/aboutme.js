@@ -18,12 +18,11 @@ const Experience = ({ data, title, excerpt, icon, companyLink, skills }) => (
     <div className={styles.description}>
       <p className={styles.excerpt}>{excerpt}</p>
       <div className={styles.skills}>
-        {(skills || []).map(({ text, backgroundColor, color }, index) => (
+        {(skills || []).map(({ text, backgroundColor }, index) => (
           <Chip
             key={index}
             text={text}
             backgroundColor={backgroundColor}
-            color={color}
           />
         ))}
       </div>
@@ -141,44 +140,54 @@ const ResumePage = ({ location }) => {
   ).sort((repo1, repo2) => (repo1.pushedAt < repo2.pushedAt ? 1 : -1))
   return (
     <div className={styles.background}>
-      <Layout location={location}>
+      <Layout pageId="aboutme">
         <SEO title="Resume" />
-        <h2>Expériences</h2>
-        {experiences.map(
-          ({ title, location, companyLink, icon, excerpt, skills }, index) => (
-            <Experience
-              key={index}
-              data={data}
-              title={title}
-              location={location}
-              companyLink={companyLink}
-              icon={icon}
-              excerpt={excerpt}
-              skills={skills}
-            />
-          )
-        )}
-        <h2>Formation</h2>
-        {education.map(
-          ({ title, location, companyLink, icon, excerpt, skills }, index) => (
-            <Experience
-              key={index}
-              data={data}
-              title={title}
-              location={location}
-              companyLink={companyLink}
-              icon={icon}
-              excerpt={excerpt}
-              skills={skills}
-            />
-          )
-        )}
-        <h2>Github</h2>
-        <div className={styles.repositoriesContainer}>
-          {sortedRepositories.map((repository, index) => (
-            <RepositoryCard key={index} repository={repository} />
-          ))}
-        </div>
+        <section>
+          <h2>Expériences</h2>
+          {experiences.map(
+            (
+              { title, location, companyLink, icon, excerpt, skills },
+              index
+            ) => (
+              <Experience
+                key={index}
+                data={data}
+                title={title}
+                companyLink={companyLink}
+                icon={icon}
+                excerpt={excerpt}
+                skills={skills}
+              />
+            )
+          )}
+        </section>
+        <section>
+          <h2>Formation</h2>
+          {education.map(
+            (
+              { title, location, companyLink, icon, excerpt, skills },
+              index
+            ) => (
+              <Experience
+                key={index}
+                data={data}
+                title={title}
+                companyLink={companyLink}
+                icon={icon}
+                excerpt={excerpt}
+                skills={skills}
+              />
+            )
+          )}
+        </section>
+        <section>
+          <h2>Github</h2>
+          <div className={styles.repositoriesContainer}>
+            {sortedRepositories.map((repository, index) => (
+              <RepositoryCard key={index} repository={repository} />
+            ))}
+          </div>
+        </section>
       </Layout>
     </div>
   )
