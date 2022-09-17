@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import DevIllustration from "../images/dev.inline.svg"
@@ -24,6 +24,19 @@ const IndexPage = () => {
       }
     `
   )
+  const profileRef = React.useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle(styles.show, entry.isIntersecting)
+      })
+    })
+    const profileItems = [...profileRef.current?.children] || []
+    profileItems.forEach(profileItem => {
+      observer.observe(profileItem)
+    })
+  }, [])
 
   const imageData = data.desktop.childImageSharp.fluid
   return (
@@ -43,27 +56,23 @@ const IndexPage = () => {
         <div className={styles.secondPanelContent}>
           <div className={styles.secondPanelHeader}>Who I am</div>
           <div className={styles.separator} />
-          <div className={styles.profile}>
+          <div ref={profileRef} className={styles.profile}>
             <div className={styles.profileItem}>
-              <DevIllustration width='140px' height='113px' />
+              <DevIllustration width="140px" height="113px" />
               <div className={styles.title}>Developer</div>
               <div className={styles.description}>
                 Building products people love
               </div>
             </div>
             <div className={styles.profileItem}>
-              <SpaceIllustration width='140px' height='113px' />
+              <SpaceIllustration width="140px" height="113px" />
               <div className={styles.title}>Space enthousiast</div>
-              <div className={styles.description}>
-                Dreaming of the stars
-              </div>
+              <div className={styles.description}>Dreaming of the stars</div>
             </div>
             <div className={styles.profileItem}>
-              <CyclistIllustration width='140px' height='113px' />
+              <CyclistIllustration width="140px" height="113px" />
               <div className={styles.title}>Urban cyclist</div>
-              <div className={styles.description}>
-                Riding in Paris
-              </div>
+              <div className={styles.description}>Riding in Paris</div>
             </div>
           </div>
         </div>

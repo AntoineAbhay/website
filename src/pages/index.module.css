@@ -58,10 +58,27 @@
   }
 }
 
+@media(prefers-reduced-motion) {
+  .profile-item {
+    transition: none;
+  }
+}
+
 .profile-item {
   font-family: Montserrat;
   text-align: center;
   margin-bottom: 48px;
+
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1s;
+}
+
+.profile-item.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
 }
 
 .profile-item .title {
