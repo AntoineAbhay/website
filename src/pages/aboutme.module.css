@@ -59,6 +59,7 @@ section {
 
 .excerpt {
   margin-bottom: 0.5em;
+  white-space: pre-wrap;
 }
 
 .skills {

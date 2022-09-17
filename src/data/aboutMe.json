@@ -7,7 +7,7 @@
       "end": "Today",
       "companyLink": "https://hiresweet.com/",
       "icon": "hiresweetImage",
-      "excerpt": "Développement de l'application client d'hiresweet et des outils internes utilisant React en front, NodeJs et MongoDB en back ainsi que des API REST et GraphQL.",
+      "excerpt": "HireSweet's mission is to solve the problem of recruitment in the tech industry. We've been developing tools to help recruiters find the right candidates to fill their open positions.\n\nI joined the team at the end of my studies in engineering school.Since then I had the opportunity to work on many different projects.\n\nWe've developed a validation library for python and javascript where schemas are defined in JSON. As JSON schema was still a draft, we decided to develop our own.\nI worked on internal tools to boost the operation team productivity. One of the job was to manually validate wether or not a candidate was a good enough fit for a given position. The goal was to have unperceptible latency between two profiles. We managed to do so mainly by prefetching the data just in time.\nAs emails are the main way to contact candidates, it was necessary to have integrations with both Gmail and Outlook as they cover a majority of companies. Automation is also a key factor to help recruiters. That's why we built contact sequences that can be triggered automatically, sending emails, followups, reminders etc.\n Just to name a few other projects:\n - Tracking email open and click events\n - Resume file creation using a lambda function and puppeteer\n - Calendly integration using webhooks to receive appointments notifications\n - Many application tracking systems integrations.",
       "skills": [
         { "text": "MongoDB", "backgroundColor": "#13aa5220", "color": "black" },
         { "text": "Node.js", "backgroundColor": "#026e0020", "color": "black" },
@@ -40,7 +40,7 @@
       "end": "February 2018",
       "companyLink": "https://www.homerez.fr/",
       "icon": "homerezImage",
-      "excerpt": "Développement des différentes applications web d'Homerez (CRM, plateforme de réservation) basées sur des technologies Javascript (NodeJS, AngularJS) et MongoDB.",
+      "excerpt": "I worked at Homerez for 6 months. It was my first professional experience as a web developer.\n\nI learnt how to use AngularJS and NodeJS. That was also the first time I heard about MongoDB and I really enjoyed working with this database.\n\nWe were organized as a scrum team around the CTO (Antoine). As it was my first experience, scrum just felt natural. All the rituals were here for a good reason.\n\nI met great engineers: Tim, Tola and Zihoui! They had taught me pretty much everything I knew by the end of this internship.\n\nWe were developing different web apps to help homeowners rent their place on platforms such as Booking.com and Airbnb. We were in charge of syncing availabilities accross all platforms to maximize the occupation ratio. A big part of the job was to build tools that would help the operational teams: understanding their issues and help fix them. There was no product oriented people at the time in the team so we could get lost in translation sometimes. A perfect place to learn.",
       "skills": [
         { "text": "MongoDB", "backgroundColor": "#13aa5220", "color": "black" },
         { "text": "Node.js", "backgroundColor": "#026e0020", "color": "black" },
