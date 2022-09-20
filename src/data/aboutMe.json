@@ -11,11 +11,19 @@
       "skills": [
         { "text": "MongoDB", "backgroundColor": "#13aa5220", "color": "black" },
         { "text": "Node.js", "backgroundColor": "#026e0020", "color": "black" },
-        { "text": "Typescript", "backgroundColor": "#3178c620", "color": "black" },
+        {
+          "text": "Typescript",
+          "backgroundColor": "#3178c620",
+          "color": "black"
+        },
         { "text": "GraphQL", "backgroundColor": "#E1009820", "color": "black" },
         { "text": "React", "backgroundColor": "#61dafb20", "color": "black" },
         { "text": "AWS", "backgroundColor": "#f8991d20", "color": "black" },
-        { "text": "CircleCI", "backgroundColor": "#16161620", "color": "black" },
+        {
+          "text": "CircleCI",
+          "backgroundColor": "#16161620",
+          "color": "black"
+        },
         { "text": "Docker", "backgroundColor": "#0091e220", "color": "black" }
       ]
     },
@@ -44,7 +52,11 @@
       "skills": [
         { "text": "MongoDB", "backgroundColor": "#13aa5220", "color": "black" },
         { "text": "Node.js", "backgroundColor": "#026e0020", "color": "black" },
-        { "text": "AngularJS", "backgroundColor": "#de003220", "color": "black" }
+        {
+          "text": "AngularJS",
+          "backgroundColor": "#de003220",
+          "color": "black"
+        }
       ]
     }
   ],
@@ -52,8 +64,8 @@
     {
       "title": "École Centrale de Lyon",
       "location": "Région de Lyon, France",
-      "start":"2015",
-      "end":"2019",
+      "start": "2015",
+      "end": "2019",
       "companyLink": "https://www.ec-lyon.fr/",
       "icon": "eclImage",
       "excerpt": "Formation d'ingénieur généraliste, option informatique.",

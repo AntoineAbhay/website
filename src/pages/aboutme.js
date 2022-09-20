@@ -1,7 +1,18 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
-import styles from "./aboutme.module.css"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import {
+  experience,
+  title as titleClass,
+  titleContainer,
+  icon as iconClass,
+  description,
+  excerpt as excerptClass,
+  metaData,
+  background,
+  repositoriesContainer,
+  experienceHeader,
+} from "./aboutme.module.css"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Chip from "../components/chip"
@@ -18,25 +29,25 @@ const Experience = ({
   start,
   end,
 }) => (
-  <div className={styles.experience}>
+  <div className={experience}>
     <a
       target="__blank"
       rel="noopener noreferer"
       href={companyLink}
-      className={styles.titleContainer}
+      className={titleContainer}
     >
-      <div className={styles.experienceHeader}>
-        <Img fixed={data[icon].childImageSharp.fixed} className={styles.icon} />
-        <h3 className={styles.title}>{title}</h3>
+      <div className={experienceHeader}>
+        <GatsbyImage image={getImage(data[icon])} className={iconClass} />
+        <h3 className={titleClass}>{title}</h3>
       </div>
     </a>
-    <div className={styles.metaData}>{location}</div>
-    <div className={styles.metaData}>
+    <div className={metaData}>{location}</div>
+    <div className={metaData}>
       {start} - {end}
     </div>
-    <div className={styles.description}>
-      <p className={styles.excerpt}>{excerpt}</p>
-      <div className={styles.skills}>
+    <div className={description}>
+      <p className={excerptClass}>{excerpt}</p>
+      <div className={skills}>
         {(skills || []).map(({ text, backgroundColor }, index) => (
           <Chip key={index} text={text} backgroundColor={backgroundColor} />
         ))}
@@ -56,38 +67,29 @@ const Experience = ({
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const ResumePage = ({ location }) => {
+const ResumePage = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       hiresweetImage: file(relativePath: { eq: "hiresweet.png" }) {
         childImageSharp {
-          fixed(width: 30, height: 30) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(width: 30, height: 30, layout: FIXED)
         }
       }
       ayudaImage: file(relativePath: { eq: "ayuda.png" }) {
         childImageSharp {
-          fixed(width: 30, height: 30) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(width: 30, height: 30, layout: FIXED)
         }
       }
       homerezImage: file(relativePath: { eq: "homerez.png" }) {
         childImageSharp {
-          fixed(width: 30, height: 30) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(width: 30, height: 30, layout: FIXED)
         }
       }
       eclImage: file(relativePath: { eq: "ecl.png" }) {
         childImageSharp {
-          fixed(width: 30, height: 30) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(width: 30, height: 30, layout: FIXED)
         }
       }
-
       allDataJson {
         edges {
           node {
@@ -122,7 +124,6 @@ const ResumePage = ({ location }) => {
           }
         }
       }
-
       github {
         viewer {
           repositories(first: 100, affiliations: [OWNER]) {
@@ -158,7 +159,7 @@ const ResumePage = ({ location }) => {
     data?.github?.viewer?.repositories?.nodes || []
   ).sort((repo1, repo2) => (repo1.pushedAt < repo2.pushedAt ? 1 : -1))
   return (
-    <div className={styles.background}>
+    <div className={background}>
       <Layout pageId="aboutme">
         <SEO title="Resume" />
         <section>
@@ -225,7 +226,7 @@ const ResumePage = ({ location }) => {
         </section>
         <section>
           <h2>Github</h2>
-          <div className={styles.repositoriesContainer}>
+          <div className={repositoriesContainer}>
             {sortedRepositories.map((repository, index) => (
               <RepositoryCard key={index} repository={repository} />
             ))}

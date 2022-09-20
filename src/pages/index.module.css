@@ -1,6 +1,10 @@
 .first-panel {
   height: 100vh;
   width: 100vw;
+  background-image: url("../images/shuttle_launch.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #040e18;
 }
 
 .first-panel-content {

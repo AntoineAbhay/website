@@ -1,7 +1,7 @@
 import React from "react"
 import Chip from "./chip"
 import Label from "./label"
-import styles from "./repositoryCard.module.css"
+import { repositoryCard, repositoryName } from "./repositoryCard.module.css"
 
 const getDarkerColor = (hexaColor, factor = 1) => {
   const posibilities = "0123456789ABCDEF"
@@ -23,9 +23,9 @@ const getDarkerColor = (hexaColor, factor = 1) => {
 const RepositoryCard = ({ repository }) => {
   const { name, url, description, languages, repositoryTopics } = repository
   return (
-    <div className={styles.repositoryCard}>
+    <div className={repositoryCard}>
       <a
-        className={styles.repositoryName}
+        className={repositoryName}
         href={url}
         target="_blank"
         rel="noopener noreferrer"

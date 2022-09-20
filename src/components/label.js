@@ -1,8 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styles from "./label.module.css"
+import { label } from "./label.module.css"
 
-const Label = ({ text }) => <span className={styles.label}>{text}</span>
+const Label = ({ text }) => <span className={label}>{text}</span>
 
 Label.propTypes = {
   text: PropTypes.string,
