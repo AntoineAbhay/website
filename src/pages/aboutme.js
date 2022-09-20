@@ -14,7 +14,7 @@ import {
   experienceHeader,
 } from "./aboutme.module.css"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import HtmlHead from "../components/HtmlHead"
 import Chip from "../components/chip"
 import RepositoryCard from "../components/repositoryCard"
 
@@ -161,7 +161,6 @@ const ResumePage = () => {
   return (
     <div className={background}>
       <Layout pageId="aboutme">
-        <SEO title="Resume" />
         <section>
           <h2>Experiences</h2>
           {experiences.map(
@@ -236,5 +235,7 @@ const ResumePage = () => {
     </div>
   )
 }
+
+export const Head = () => <HtmlHead title="Resume" />
 
 export default ResumePage

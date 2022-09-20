@@ -3,7 +3,7 @@ import DevIllustration from "../images/dev.inline.svg"
 import SpaceIllustration from "../images/space.inline.svg"
 import CyclistIllustration from "../images/cyclist.inline.svg"
 
-import SEO from "../components/seo"
+import HtmlHead from "../components/HtmlHead"
 
 import {
   show,
@@ -37,7 +37,6 @@ const IndexPage = () => {
 
   return (
     <>
-      <SEO title="Home" />
       <div className={firstPanel}>
         <div className={firstPanelContent}>
           <div className={firstPanelHeader}>Hey,</div>
@@ -70,5 +69,7 @@ const IndexPage = () => {
     </>
   )
 }
+
+export const Head = () => <HtmlHead title="Home" />
 
 export default IndexPage
